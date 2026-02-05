@@ -13,13 +13,8 @@ aggregate_fielding_team <- function(players, game_id, game_date, team_side) {
     field <- player$stats$fielding
     
     tibble(
-      date                 = game_date,
       gameID               = game_id,
-      VorH                 = team_side,
-      playerName           = player$person$fullName,
       playerID             = player$person$id,
-      jerseyNumber         = player$person$jerseyNumber,
-      position             = player$position$name,
       field_assists        = field$assists,
       field_putOuts        = field$putOuts,
       field_errors         = field$errors,

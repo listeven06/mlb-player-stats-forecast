@@ -13,13 +13,8 @@ aggregate_pitching_team <- function(players, game_id, game_date, team_side) {
     pitch <- player$stats$pitching
     
     tibble(
-      date                         = game_date,
       gameID                       = game_id,
-      VorH                         = team_side,
-      playerName                   = player$person$fullName,
       playerID                     = player$person$id,
-      jerseyNumber                 = player$person$jerseyNumber,
-      position                     = player$position$name,
       pitch_flyOuts                = pitch$flyOuts,
       pitch_groundOuts             = pitch$groundOuts,
       pitch_airOuts                = pitch$airOuts,
