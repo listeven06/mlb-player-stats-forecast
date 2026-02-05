@@ -1,4 +1,5 @@
 library(tidyverse)
+library(jsonlite)
 
 FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/game__20251101__813024.Rdata"
 
