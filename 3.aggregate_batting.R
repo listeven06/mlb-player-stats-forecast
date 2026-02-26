@@ -58,10 +58,16 @@ aggregate_batting_team <- function(players, game_id, game_date, team_side) {
 aggregate_batting <- function(game_raw) {
   
   game_id   <- game_raw$gameData$game$pk
-  game_date <- as.Date(game_raw$gameData$datetime$officialDate)
+  game_date <- as.Date(game_raw$gameData$datetime$originalDate)
+  
+  message("game_id: ", game_id)
+  message("game_date: ", game_date)
   
   home_players <- game_raw$liveData$boxscore$teams$home$players
   away_players <- game_raw$liveData$boxscore$teams$away$players
+  
+  message("home_players: ", length(home_players))
+  message("away_players: ", length(away_players))
   
   bind_rows(
     aggregate_batting_team(home_players, game_id, game_date, "H"),

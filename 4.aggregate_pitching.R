@@ -63,7 +63,7 @@ aggregate_pitching_team <- function(players, game_id, game_date, team_side) {
 aggregate_pitching <- function(game_raw) {
   
   game_id   <- game_raw$gameData$game$pk
-  game_date <- as.Date(game_raw$gameData$datetime$officialDate)
+  game_date <- as.Date(game_raw$gameData$datetime$originalDate)
   
   home_players <- game_raw$liveData$boxscore$teams$home$players
   away_players <- game_raw$liveData$boxscore$teams$away$players

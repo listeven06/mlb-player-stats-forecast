@@ -1,7 +1,13 @@
 library(tidyverse)
 library(jsonlite)
 
-FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/game__20251101__813024.Rdata"
+
+# FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/sample/game__20251101__813024.RData"
+
+# FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20251031__813025.RData"
+
+FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20100302__276989.RData"
+
 
 # --------------------------------------------------------------------------------------------- #
 
@@ -19,8 +25,15 @@ read_rdata_json <- function(path) {
   object_name <- obj_names[1]
   json_text <- env[[object_name]]
   
-  if (!is.character(json_text) || length(json_text) != 1) {
-    stop("Loaded object is not a single character string.")
+  # JSON may be stored as line-split character vector (older version); 
+  # Collapse to single string
+  if (length(json_text) > 1) {
+    json_text <- paste(json_text, collapse = "")
+  }
+  
+  # Output Error Message if JSON can't be collapsed
+  if (length(json_text) != 1) {
+    stop("Loaded object could not be converted to a single character string.")
   }
   
   fromJSON(json_text, simplifyVector = FALSE)

@@ -8,3 +8,7 @@ merge_stats <- function(d1, d2, d3) {
 }
 
 player_game <- merge_stats(bat_stats, field_stats, pitch_stats)
+
+
+# Export df to csv
+# write.csv(player_game, "/Users/listeven/Documents/School/MASDS THESIS/example_aggregated_player_data.csv")
