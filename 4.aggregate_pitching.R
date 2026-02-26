@@ -1,8 +1,10 @@
 library(tidyverse)
 
-# --------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
-# Function that aggregates pitcher-level statistics for a single team (home or away) in one game.
+# Function that aggregates pitcher-level statistics for a single team 
+# (home or away) in one game.
+
 # Takes a list of player objects from the MLB boxscore JSON and returns
 # one row per player with pitching stats.
 
@@ -54,7 +56,7 @@ aggregate_pitching_team <- function(players, game_id, game_date, team_side) {
   })
 }
 
-# --------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 # Function that aggregates pitcher-level statistics for an entire game. 
 # Extracts game metadata and applies team-level aggregation to both
@@ -74,4 +76,4 @@ aggregate_pitching <- function(game_raw) {
   )
 }
 
-pitch_stats <- aggregate_pitching(game_data)
+# pitch_stats <- aggregate_pitching(game_data)

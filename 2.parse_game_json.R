@@ -4,12 +4,12 @@ library(jsonlite)
 
 # FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/sample/game__20251101__813024.RData"
 
-# FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20251031__813025.RData"
+FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20100405__263809.RData"
 
-FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20100302__276989.RData"
+# FILE_DIRECTORY <- "/Users/listeven/Documents/School/MASDS THESIS/MLBgames/game__20100302__276989.RData"
 
 
-# --------------------------------------------------------------------------------------------- #
+# ---------------------------------------------------------------------------- #
 
 # Function to read a .RData file containing a cached raw API response
 # (e.g., data pulled from the MLB API and saved in compressed RData format)
@@ -39,4 +39,4 @@ read_rdata_json <- function(path) {
   fromJSON(json_text, simplifyVector = FALSE)
 }
 
-game_data <- read_rdata_json(FILE_DIRECTORY)
+# game_data <- read_rdata_json(FILE_DIRECTORY)
