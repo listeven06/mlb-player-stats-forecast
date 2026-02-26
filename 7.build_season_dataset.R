@@ -74,20 +74,10 @@ process_one_game <- function(rdata_file_directory) {
     # 4. return player-level stats for this game in merged df 
     merged_df
     
-  }, warning = function(w) {
-    
-    message("\n WARNING in file: ", basename(rdata_file_directory))
-    message("   ", conditionMessage(w))
-    
-    # keep going, but silence the warning so you don't get spammed
-    # invokeRestart("muffleWarning")
-    w
-    
   }, error = function(e) {
-    
-    message("\n ERROR in file: ", basename(rdata_file_directory))
-    message("   ", conditionMessage(e))
-    NULL
+    message("Error in file: ", basename(rdata_file_directory))
+    message(e$message)
+    return(NULL)
   })
 }
 
@@ -143,6 +133,7 @@ build_season_panel <- function(games_index, verbose = TRUE) {
   season_df
 }
 
-subset <- build_season_panel(
+subset_df <- build_season_panel(
   games_index = subsetGamesIndex
 )
+
